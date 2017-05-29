@@ -97,7 +97,7 @@ public class ADGNativeAdHelper {
 
         // 広告マークの設定
         TextView prTextView = new TextView(context);
-        prTextView.setText("広告");
+        prTextView.setText("AD");
         prTextView.setTextColor(Color.rgb(218, 218, 218));
         prTextView.setTextSize(9);
         prTextView.setLayoutParams(new ViewGroup.LayoutParams(
@@ -178,9 +178,7 @@ public class ADGNativeAdHelper {
                 Utilities.convertDpToPixel(context, 14)));
         spTextView.setTextSize(8);
         spTextView.setTextColor(Color.rgb(218, 218, 218));
-        spTextView.setText(
-                (nativeAd.getSponsored() != null) ?
-                        "sponsored by " + nativeAd.getSponsored().getValue() : "sponsored");
+        spTextView.setText(nativeAd.getSponsored() != null && nativeAd.getSponsored().getValue() != null ? "sponsored by " + nativeAd.getSponsored().getValue() : "sponsored");
         Utilities.setOneLineAndEllipsisForTextView(spTextView);
         bottomLeftWrapper.addView(spTextView);
 
@@ -208,8 +206,7 @@ public class ADGNativeAdHelper {
         //setBackgroundDrawableはDeprecatedですが、古いバージョンの端末サポートのため使用しています
         nativeAdButton.setBackgroundDrawable(borders);
         nativeAdButton.setText(
-                nativeAd.getCtatext() != null ?
-                        nativeAd.getCtatext().getValue() : "詳しくはこちら");
+                nativeAd.getCtatext() != null && nativeAd.getCtatext().getValue() != null ? nativeAd.getCtatext().getValue() : "詳しくはこちら");
         Utilities.setOneLineAndEllipsisForTextView(nativeAdButton);
         nativeAd.setClickEvent(nativeAdButton); // ボタンへのタップ設定
 
