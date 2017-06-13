@@ -13,12 +13,14 @@ import com.socdm.d.adgeneration.ADG;
 import com.socdm.d.adgeneration.ADGConsts;
 import com.socdm.d.adgeneration.ADGListener;
 import com.socdm.d.adgeneration.nativead.ADGNativeAd;
+import com.socdm.d.adgeneration.nativead.video.ADGVideoView;
 
 import jp.supership.nativesample.helper.ADGNativeAdHelper;
 import jp.supership.nativesample.helper.FANNativeAdHelper;
 
 public class RectangleNativeAdViewActivity extends Activity {
     private ADG adg;
+    private ADGVideoView adgVideoView;
     private LinearLayout ad_container;
 
     @Override
@@ -44,6 +46,10 @@ public class RectangleNativeAdViewActivity extends Activity {
             @Override
             public void onClick(View v) {
                 adg.stop();
+                if (adgVideoView != null) {
+                    adgVideoView.pause();
+                    adgVideoView = null;
+                }
                 adg.start();
             }
         });
@@ -55,6 +61,9 @@ public class RectangleNativeAdViewActivity extends Activity {
         // 広告表示/ローテーション再開
         if (adg != null) {
             adg.start();
+            if (adgVideoView != null) {
+                adgVideoView.start();
+            }
         }
     }
 
@@ -64,6 +73,10 @@ public class RectangleNativeAdViewActivity extends Activity {
         // ローテーション停止
         if (adg != null) {
             adg.pause();
+            if (adgVideoView != null) {
+                adgVideoView.pause();
+            }
+
         }
     }
 
@@ -86,8 +99,9 @@ public class RectangleNativeAdViewActivity extends Activity {
 
                 // インフォメーションアイコンのデフォルト表示OFF
                 adg.setInformationIconViewDefault(false);
-
-                FrameLayout layout = ADGNativeAdHelper.createAdView(nativeAd, getApplicationContext());
+                ADGNativeAdHelper adgNativeAdHelper = new ADGNativeAdHelper(getApplicationContext());
+                FrameLayout layout = adgNativeAdHelper.createAdView(nativeAd, getApplicationContext());
+                adgVideoView = adgNativeAdHelper.getAdgVideoView();
 
                 // クリックやローテーションの制御に必要なため必ず記述してください
                 adg.delegateViewManagement(layout, nativeAd);

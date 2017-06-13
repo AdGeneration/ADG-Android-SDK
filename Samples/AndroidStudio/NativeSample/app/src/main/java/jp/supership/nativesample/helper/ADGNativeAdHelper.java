@@ -13,11 +13,22 @@ import android.widget.TextView;
 
 import com.socdm.d.adgeneration.nativead.ADGInformationIconView;
 import com.socdm.d.adgeneration.nativead.ADGNativeAd;
+import com.socdm.d.adgeneration.nativead.ADGVideo;
+import com.socdm.d.adgeneration.nativead.video.ADGVideoView;
 
 import jp.supership.nativesample.utilities.DownloadImageAsync;
 import jp.supership.nativesample.utilities.Utilities;
 
 public class ADGNativeAdHelper {
+    private ADGVideoView adgVideoView;
+
+    public ADGNativeAdHelper(Context ct) {
+        this.adgVideoView = new ADGVideoView(ct);
+    }
+
+    public ADGVideoView getAdgVideoView() {
+        return adgVideoView;
+    }
 
     /**
      * ネイティブ広告を作成します。
@@ -26,12 +37,18 @@ public class ADGNativeAdHelper {
      * @param context  Context
      * @return ad
      */
-    public static FrameLayout createAdView(ADGNativeAd nativeAd, Context context) {
+    public FrameLayout createAdView(ADGNativeAd nativeAd, Context context) {
+        final int VMP = ViewGroup.LayoutParams.MATCH_PARENT;
+        final int VWC = ViewGroup.LayoutParams.WRAP_CONTENT;
+        final int LMP = LinearLayout.LayoutParams.MATCH_PARENT;
+        final int LWC = LinearLayout.LayoutParams.WRAP_CONTENT;
+        
         // 広告枠の設定
         FrameLayout layout = new FrameLayout(context);
-        layout.setLayoutParams(new ViewGroup.LayoutParams(
+        layout.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
-                FrameLayout.LayoutParams.MATCH_PARENT));
+                FrameLayout.LayoutParams.MATCH_PARENT
+        ));
         layout.setBackgroundColor(Color.WHITE);
 
         // 広告枠のレイアウト設定
@@ -45,8 +62,8 @@ public class ADGNativeAdHelper {
         // Headerの設定
         LinearLayout headerWrapper = new LinearLayout(context);
         headerWrapper.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                Utilities.convertDpToPixel(context, 30)));
+                LWC, Utilities.convertDpToPixel(context, 30)
+        ));
         headerWrapper.setOrientation(LinearLayout.HORIZONTAL);
         headerWrapper.setGravity(Gravity.LEFT);
         nativeAdContainer.addView(headerWrapper);
@@ -55,8 +72,7 @@ public class ADGNativeAdHelper {
         if (nativeAd.getIconImage() != null) {
             ImageView adIconView = new ImageView(context);
             adIconView.setLayoutParams(new ViewGroup.LayoutParams(
-                    Utilities.convertDpToPixel(context, 30),
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
+                    Utilities.convertDpToPixel(context, 30), VWC));
             String adIconImageUrl = nativeAd.getIconImage().getUrl();
 
             // 画像をロードします(方法については任意で行ってください)
@@ -68,8 +84,8 @@ public class ADGNativeAdHelper {
         // タイトルと広告マークを縦に並べる
         LinearLayout titlesWrapper = new LinearLayout(context);
         titlesWrapper.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
+                LWC, LWC
+        ));
         titlesWrapper.setOrientation(LinearLayout.VERTICAL);
         titlesWrapper.setPadding(Utilities.convertDpToPixel(context, 6), 0, 0, 0);
         headerWrapper.addView(titlesWrapper);
@@ -78,14 +94,12 @@ public class ADGNativeAdHelper {
         if (nativeAd.getTitle() != null) {
             LinearLayout nativeAdTitle = new LinearLayout(context);
             nativeAdTitle.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    Utilities.convertDpToPixel(context, 16)));
+                    LWC, Utilities.convertDpToPixel(context, 16)
+            ));
             TextView titleView = new TextView(context);
             titleView.setTextColor(Color.BLACK);
             titleView.setTextSize(9);
-            titleView.setLayoutParams(new ViewGroup.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT));
+            titleView.setLayoutParams(new ViewGroup.LayoutParams(LWC, LWC));
             titleView.setPadding(0, 0, 0, Utilities.convertDpToPixel(context, 3));
             titleView.setTypeface(Typeface.DEFAULT_BOLD);
             String title = nativeAd.getTitle().getText();
@@ -101,15 +115,15 @@ public class ADGNativeAdHelper {
         prTextView.setTextColor(Color.rgb(218, 218, 218));
         prTextView.setTextSize(9);
         prTextView.setLayoutParams(new ViewGroup.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
         titlesWrapper.addView(prTextView);
 
         // 本文の設定
         if (nativeAd.getDesc() != null) {
             TextView descView = new TextView(context);
-            descView.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
+            descView.setLayoutParams(new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
                     Utilities.convertDpToPixel(context, 24)));
             descView.setTextSize(8);
             descView.setTextColor(Color.rgb(218, 218, 218));
@@ -120,17 +134,21 @@ public class ADGNativeAdHelper {
             descView.setText(desc);
         }
 
-        // メインイメージの設定
+        // メインイメージ(or動画)の設定
         FrameLayout nativeAdImage = new FrameLayout(context);
         nativeAdImage.setLayoutParams(new FrameLayout.LayoutParams(
                 Utilities.convertDpToPixel(context, 300),
                 Utilities.convertDpToPixel(context, 156)));
         nativeAdContainer.addView(nativeAdImage);
-        if (nativeAd.getMainImage() != null) {
+        ADGVideo adgVideo = nativeAd.getVideo();
+        if (adgVideo != null && adgVideo.isValid()) {
+            this.adgVideoView.setVideo(adgVideo);
+            this.adgVideoView.setForegroundGravity(Gravity.CENTER);
+            this.adgVideoView.setLayoutParams(new ViewGroup.LayoutParams(VMP, VWC));
+            nativeAdImage.addView(adgVideoView);
+        } else if (nativeAd.getMainImage() != null) {
             ImageView adCoverView = new ImageView(context);
-            adCoverView.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT));
+            adCoverView.setLayoutParams(new ViewGroup.LayoutParams(VMP, VMP));
             adCoverView.setAdjustViewBounds(true);
             adCoverView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             String adCoverImageUrl = nativeAd.getMainImage().getUrl();
@@ -147,27 +165,18 @@ public class ADGNativeAdHelper {
 
         // Bottomの設定
         LinearLayout bottomWrapper = new LinearLayout(context);
-        bottomWrapper.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
-        ));
+        bottomWrapper.setLayoutParams(new LinearLayout.LayoutParams(LMP, LMP));
         bottomWrapper.setOrientation(LinearLayout.HORIZONTAL);
         bottomWrapper.setGravity(Gravity.LEFT);
         nativeAdContainer.addView(bottomWrapper);
 
         LinearLayout bottomLeftWrapper = new LinearLayout(context);
-        bottomLeftWrapper.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                1.0f));
+        bottomLeftWrapper.setLayoutParams(new LinearLayout.LayoutParams(LMP, LMP, 1.0f));
         bottomLeftWrapper.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         bottomWrapper.addView(bottomLeftWrapper);
 
         LinearLayout bottomRightWrapper = new LinearLayout(context);
-        bottomRightWrapper.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                1.0f));
+        bottomRightWrapper.setLayoutParams(new LinearLayout.LayoutParams(LMP, LMP, 1.0f));
         bottomRightWrapper.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
         bottomWrapper.addView(bottomRightWrapper);
 
@@ -184,13 +193,11 @@ public class ADGNativeAdHelper {
 
         // ボタンの設定
         LinearLayout nativeAdButtonArea = new LinearLayout(context);
-        nativeAdButtonArea.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));
+        nativeAdButtonArea.setLayoutParams(new LinearLayout.LayoutParams(LMP, LMP));
         nativeAdButtonArea.setGravity(Gravity.CENTER);
 
         TextView nativeAdButton = new TextView(context);
-        nativeAdButton.setLayoutParams(new LinearLayout.LayoutParams(
+        nativeAdButton.setLayoutParams(new ViewGroup.LayoutParams(
                 Utilities.convertDpToPixel(context, 130),
                 Utilities.convertDpToPixel(context, 25)));
         nativeAdButton.setTextColor(Color.rgb(11, 144, 255));
