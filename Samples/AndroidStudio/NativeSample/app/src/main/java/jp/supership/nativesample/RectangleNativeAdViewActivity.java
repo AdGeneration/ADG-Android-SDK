@@ -99,7 +99,7 @@ public class RectangleNativeAdViewActivity extends Activity {
 
                 // インフォメーションアイコンのデフォルト表示OFF
                 adg.setInformationIconViewDefault(false);
-                ADGNativeAdHelper adgNativeAdHelper = new ADGNativeAdHelper(getApplicationContext());
+                ADGNativeAdHelper adgNativeAdHelper = new ADGNativeAdHelper();
                 FrameLayout layout = adgNativeAdHelper.createAdView(nativeAd, getApplicationContext());
                 adgVideoView = adgNativeAdHelper.getAdgVideoView();
 

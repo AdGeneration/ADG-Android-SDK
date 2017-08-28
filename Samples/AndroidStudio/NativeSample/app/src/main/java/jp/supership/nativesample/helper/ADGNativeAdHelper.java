@@ -22,10 +22,6 @@ import jp.supership.nativesample.utilities.Utilities;
 public class ADGNativeAdHelper {
     private ADGVideoView adgVideoView;
 
-    public ADGNativeAdHelper(Context ct) {
-        this.adgVideoView = new ADGVideoView(ct);
-    }
-
     public ADGVideoView getAdgVideoView() {
         return adgVideoView;
     }
@@ -42,7 +38,7 @@ public class ADGNativeAdHelper {
         final int VWC = ViewGroup.LayoutParams.WRAP_CONTENT;
         final int LMP = LinearLayout.LayoutParams.MATCH_PARENT;
         final int LWC = LinearLayout.LayoutParams.WRAP_CONTENT;
-        
+
         // 広告枠の設定
         FrameLayout layout = new FrameLayout(context);
         layout.setLayoutParams(new FrameLayout.LayoutParams(
@@ -142,11 +138,13 @@ public class ADGNativeAdHelper {
         nativeAdContainer.addView(nativeAdImage);
         ADGVideo adgVideo = nativeAd.getVideo();
         if (adgVideo != null && adgVideo.isValid()) {
+            this.adgVideoView = new ADGVideoView(context);
             this.adgVideoView.setVideo(adgVideo);
             this.adgVideoView.setForegroundGravity(Gravity.CENTER);
             this.adgVideoView.setLayoutParams(new ViewGroup.LayoutParams(VMP, VWC));
             nativeAdImage.addView(adgVideoView);
         } else if (nativeAd.getMainImage() != null) {
+            this.adgVideoView = null;
             ImageView adCoverView = new ImageView(context);
             adCoverView.setLayoutParams(new ViewGroup.LayoutParams(VMP, VMP));
             adCoverView.setAdjustViewBounds(true);
