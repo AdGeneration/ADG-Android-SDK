@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 import com.facebook.ads.AdChoicesView;
 import com.facebook.ads.MediaView;
 import com.facebook.ads.NativeAd;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import jp.supership.nativesample.utilities.Utilities;
 
@@ -30,7 +34,7 @@ public class FANNativeAdHelper {
         final int FMP = FrameLayout.LayoutParams.MATCH_PARENT;
         final int LMP = LinearLayout.LayoutParams.MATCH_PARENT;
         final int LWC = LinearLayout.LayoutParams.WRAP_CONTENT;
-
+        List<View> clickableViews = new ArrayList<>();
 
         // 広告枠の設定
         FrameLayout layout = new FrameLayout(context);
@@ -62,6 +66,7 @@ public class FANNativeAdHelper {
         NativeAd.Image icon = nativeAd.getAdIcon();
         NativeAd.downloadAndDisplayImage(icon, nativeIcon);
         headerWrapper.addView(nativeIcon, new LinearLayout.LayoutParams(Utilities.convertDpToPixel(context, 30), LWC));
+        clickableViews.add(nativeIcon);
 
         // タイトルの設定
         LinearLayout nativeAdTitle = new LinearLayout(context);
@@ -76,6 +81,7 @@ public class FANNativeAdHelper {
         titleView.setEllipsize(TextUtils.TruncateAt.END);
         String title = nativeAd.getAdTitle();
         titleView.setText(title);
+        clickableViews.add(titleView);
 
         nativeAdTitle.addView(titleView);
         headerWrapper.addView(nativeAdTitle);
@@ -105,6 +111,7 @@ public class FANNativeAdHelper {
         nativeAdBody.setLines(2);
         nativeAdBody.setEllipsize(TextUtils.TruncateAt.END);
         nativeAdFrame.addView(nativeAdBody);
+        clickableViews.add(nativeAdBody);
 
         // footerの設定
         LinearLayout footerWrapper = new LinearLayout(context);
@@ -144,6 +151,7 @@ public class FANNativeAdHelper {
         //〇〇人が利用中ですorドメインが表示される
         nativeSocialContext.setText(nativeAd.getAdSocialContext() != null ? nativeAd.getAdSocialContext() : "");
         footerLeftWrapper.addView(nativeSocialContext);
+        clickableViews.add(nativeSocialContext);
 
         // ボタンの設定
         LinearLayout nativeAdButtonArea = new LinearLayout(context);
@@ -170,6 +178,7 @@ public class FANNativeAdHelper {
         nativeAdButton.setText(nativeAd.getAdCallToAction());
         nativeAdButtonArea.addView(nativeAdButton);
         footerRightWrapper.addView(nativeAdButtonArea);
+        clickableViews.add(nativeAdButton);
 
         // AdChoiceの設定
         LinearLayout adChoiceContainer = new LinearLayout(context);
@@ -177,7 +186,9 @@ public class FANNativeAdHelper {
         nativeAdImage.addView(adChoiceContainer, new LinearLayout.LayoutParams(LMP, LWC));
         AdChoicesView adChoicesView = new AdChoicesView(context, nativeAd, true);
         adChoiceContainer.addView(adChoicesView);
-        nativeAd.registerViewForInteraction(nativeAdImage);
+
+        //広告をclickした時のイベントを追加
+        nativeAd.registerViewForInteraction(layout, clickableViews);
 
         return layout;
     }
