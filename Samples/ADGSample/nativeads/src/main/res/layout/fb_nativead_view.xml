@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fb_nativead_view_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/fb_nativead_view_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                app:srcCompat="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/fb_nativead_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_toEndOf="@+id/fb_nativead_view_icon"
+                android:layout_toRightOf="@+id/fb_nativead_view_icon"
+                android:layout_weight="1"
+                android:text="Title"
+                android:textColor="@android:color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fb_nativead_view_media_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="157dp"
+            android:layout_weight="1">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/fb_nativead_view_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:text="Body"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="9sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/fb_nativead_view_ad"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:background="#fe9000"
+                android:text="AD"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/fb_nativead_view_social_context"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/fb_nativead_view_cta"
+                android:layout_marginLeft="4dp"
+                android:layout_toEndOf="@+id/fb_nativead_view_ad"
+                android:layout_toRightOf="@+id/fb_nativead_view_ad"
+                android:text="social context"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="9dp" />
+
+            <TextView
+                android:id="@+id/fb_nativead_view_cta"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dp"
+                android:background="#33cc66"
+                android:gravity="center"
+                android:text="install now"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
