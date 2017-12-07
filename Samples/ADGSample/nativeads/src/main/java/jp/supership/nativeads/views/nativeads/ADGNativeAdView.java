@@ -1,6 +1,7 @@
 package jp.supership.nativeads.views.nativeads;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,12 +13,14 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.socdm.d.adgeneration.nativead.ADGInformationIconView;
+import com.socdm.d.adgeneration.nativead.ADGMediaView;
 import com.socdm.d.adgeneration.nativead.ADGNativeAd;
 
 import java.net.URL;
@@ -26,13 +29,12 @@ import jp.supership.nativeads.R;
 
 public class ADGNativeAdView extends RelativeLayout {
 
-    private Context mContext;
+    private Activity mActivity;
     private RelativeLayout mContainer;
     private ImageView mIconImageView;
     private TextView mTitleLabel;
     private TextView mDescLabel;
-    private FrameLayout mMainImageViewContainer;
-    private ImageView mMainImageView;
+    private FrameLayout mMediaViewContainer;
     private TextView mSponsoredLabel;
     private TextView mCTALabel;
 
@@ -56,7 +58,9 @@ public class ADGNativeAdView extends RelativeLayout {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        mContext = context;
+        if (context instanceof Activity) {
+            mActivity = (Activity)context;
+        }
         View layout = LayoutInflater.from(context).inflate(R.layout.adg_nativead_view, this);
         mContainer = (RelativeLayout) layout.findViewById(R.id.adg_nativead_view_container);
         mIconImageView = (ImageView) layout.findViewById(R.id.adg_nativead_view_icon);
@@ -64,8 +68,7 @@ public class ADGNativeAdView extends RelativeLayout {
         mTitleLabel.setText("");
         mDescLabel = (TextView) layout.findViewById(R.id.adg_nativead_view_desc);
         mDescLabel.setText("");
-        mMainImageViewContainer = (FrameLayout) layout.findViewById(R.id.adg_nativead_view_main_image_container);
-        mMainImageView = (ImageView) layout.findViewById(R.id.adg_nativead_view_main_image);
+        mMediaViewContainer = (FrameLayout) layout.findViewById(R.id.adg_nativead_view_mediaview_container);
         mSponsoredLabel = (TextView) layout.findViewById(R.id.adg_nativead_view_sponsored);
         mCTALabel = (TextView) layout.findViewById(R.id.adg_nativead_view_cta);
         mCTALabel.setText("");
@@ -100,15 +103,17 @@ public class ADGNativeAdView extends RelativeLayout {
             mDescLabel.setText(desc);
         }
 
-        // メイン画像
-        if (nativeAd.getMainImage() != null) {
-            String url = nativeAd.getMainImage().getUrl();
-            new DownloadImageAsync(mMainImageView).execute(url);
+        // メイン画像・動画
+        if (nativeAd.canLoadMedia()) {
+            ADGMediaView mediaView = new ADGMediaView(mActivity);
+            mediaView.setAdgNativeAd(nativeAd);
+            mMediaViewContainer.addView(mediaView, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            mediaView.load();
         }
 
         // インフォメーションアイコン
-        ADGInformationIconView infoIcon = new ADGInformationIconView(mContext, nativeAd);
-        mMainImageViewContainer.addView(infoIcon);
+        ADGInformationIconView infoIcon = new ADGInformationIconView(getContext(), nativeAd);
+        mMediaViewContainer.addView(infoIcon);
 
         // 広告主
         if (nativeAd.getSponsored() != null) {
@@ -125,7 +130,7 @@ public class ADGNativeAdView extends RelativeLayout {
         }
 
         // クリックイベント
-        nativeAd.setClickEvent(mContext, mContainer, null);
+        nativeAd.setClickEvent(getContext(), mContainer, null);
     }
 
     /**

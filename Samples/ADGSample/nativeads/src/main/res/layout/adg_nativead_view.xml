@@ -77,17 +77,11 @@
         </RelativeLayout>
 
         <FrameLayout
-            android:id="@+id/adg_nativead_view_main_image_container"
+            android:id="@+id/adg_nativead_view_mediaview_container"
             android:layout_width="match_parent"
             android:layout_height="157dp"
             android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/adg_nativead_view_main_image"
-                android:layout_width="match_parent"
-                android:layout_height="157dp"
-                android:layout_weight="1"
-                app:srcCompat="@android:color/transparent" />
         </FrameLayout>
 
         <RelativeLayout

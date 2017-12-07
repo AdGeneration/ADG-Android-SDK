@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
             View view = null;
             if (o instanceof ADGNativeAd) {
-                ADGNativeAdView nativeAdView = new ADGNativeAdView(getApplicationContext());
+                ADGNativeAdView nativeAdView = new ADGNativeAdView(MainActivity.this);
                 nativeAdView.apply((ADGNativeAd) o);
                 view = nativeAdView;
             } else if (o instanceof NativeAd) {
