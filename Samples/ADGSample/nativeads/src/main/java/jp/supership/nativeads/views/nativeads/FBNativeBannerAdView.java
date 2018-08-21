@@ -8,45 +8,42 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.facebook.ads.AdChoicesView;
 import com.facebook.ads.AdIconView;
-import com.facebook.ads.MediaView;
-import com.facebook.ads.NativeAd;
+import com.facebook.ads.NativeBannerAd;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 import jp.supership.nativeads.R;
 
-public class FBNativeAdView extends RelativeLayout {
+public class FBNativeBannerAdView extends RelativeLayout{
 
     private Context mContext;
-    private View mContainer;
+    private RelativeLayout mContainer;
     private AdIconView mIconImageView;
-    private RelativeLayout mMediaViewContainer;
-    private TextView mSocialContextLabel;
-    private TextView mCTALabel;
-    private TextView mBodyLabel;
-    private TextView mTitleLabel;
+    private TextView mSocialContextLabel, mCTALabel, mTitleLabel;
 
-    public FBNativeAdView(Context context) {
+    public FBNativeBannerAdView(Context context) {
         this(context, null);
     }
 
-    public FBNativeAdView(Context context, AttributeSet attrs) {
+    public FBNativeBannerAdView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public FBNativeAdView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FBNativeBannerAdView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(21)
-    public FBNativeAdView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public FBNativeBannerAdView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs, defStyleAttr, 0);
     }
@@ -54,26 +51,22 @@ public class FBNativeAdView extends RelativeLayout {
     private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mContext = context;
 
-        View layout         = LayoutInflater.from(context).inflate(R.layout.fb_nativead_view, this);
-        mContainer          = layout.findViewById(R.id.fb_nativead_view_container);
+        View layout         = LayoutInflater.from(context).inflate(R.layout.fb_native_bannerad_view, this);
+        mContainer          = (RelativeLayout) layout.findViewById(R.id.fb_native_bannerad_view_container);
         mIconImageView      = (AdIconView) layout.findViewById(R.id.fb_nativead_view_icon);
-        mMediaViewContainer = (RelativeLayout) layout.findViewById(R.id.fb_nativead_view_media_view_container);
         mTitleLabel         = (TextView) layout.findViewById(R.id.fb_nativead_view_title);
-        mBodyLabel          = (TextView) layout.findViewById(R.id.fb_nativead_view_body);
         mSocialContextLabel = (TextView) layout.findViewById(R.id.fb_nativead_view_social_context);
         mCTALabel           = (TextView) layout.findViewById(R.id.fb_nativead_view_cta);
 
         mTitleLabel.setText("");
-        mBodyLabel.setText("");
-        mSocialContextLabel.setText("");
         mCTALabel.setText("");
+        mSocialContextLabel.setText("");
 
         if (mCTALabel.getBackground() instanceof ColorDrawable) {
             ColorDrawable cd = (ColorDrawable) mCTALabel.getBackground();
             int colorCode = cd.getColor();
             GradientDrawable borders = new GradientDrawable();
             borders.setColor(colorCode);
-            borders.setCornerRadius(10);
             borders.setStroke(3, colorCode);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 mCTALabel.setBackground(borders);
@@ -83,16 +76,18 @@ public class FBNativeAdView extends RelativeLayout {
         }
     }
 
-    public void apply(NativeAd nativeAd) {
-        // MediaView
-        MediaView mediaView = new MediaView(mContext);
-        mMediaViewContainer.addView(mediaView);
+    public void apply(NativeBannerAd nativeAd) {
+
+        // adChoices
+        AdChoicesView adChoicesView = new AdChoicesView(mContext, nativeAd, true);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) adChoicesView.getLayoutParams();
+        layoutParams.addRule(ALIGN_PARENT_TOP);
+        layoutParams.addRule(ALIGN_PARENT_LEFT);
+        mContainer.addView(adChoicesView, layoutParams);
 
         // タイトル
         mTitleLabel.setText(nativeAd.getAdHeadline());
 
-        // 本文
-        mBodyLabel.setText(nativeAd.getAdBodyText());
 
         // ソーシャルコンテキスト
         mSocialContextLabel.setText(nativeAd.getAdSocialContext());
@@ -101,21 +96,13 @@ public class FBNativeAdView extends RelativeLayout {
         mCTALabel.setVisibility(nativeAd.hasCallToAction() ? View.VISIBLE : View.INVISIBLE);
         mCTALabel.setText(nativeAd.getAdCallToAction());
 
-        // AdChoice
-        AdChoicesView adChoicesView = new AdChoicesView(mContext, nativeAd, true);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) adChoicesView.getLayoutParams();
-        layoutParams.addRule(ALIGN_PARENT_TOP);
-        layoutParams.addRule(ALIGN_PARENT_RIGHT);
-        mMediaViewContainer.addView(adChoicesView, layoutParams);
-
-        //クリックイベント
+        // クリックイベント
         List<View> clickableViews = new ArrayList<>();
         clickableViews.add(mTitleLabel);
         clickableViews.add(mCTALabel);
-        clickableViews.add(mBodyLabel);
         clickableViews.add(mSocialContextLabel);
 
-        nativeAd.registerViewForInteraction(mContainer, mediaView, mIconImageView, clickableViews);
+        nativeAd.registerViewForInteraction(mContainer, mIconImageView, clickableViews);
     }
 
 }

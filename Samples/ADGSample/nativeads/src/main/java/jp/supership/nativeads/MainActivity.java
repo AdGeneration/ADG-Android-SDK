@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.facebook.ads.NativeAd;
+
+import com.facebook.ads.NativeBannerAd;
 import com.socdm.d.adgeneration.ADG;
 import com.socdm.d.adgeneration.ADGConsts;
 import com.socdm.d.adgeneration.ADGListener;
@@ -14,6 +16,7 @@ import com.socdm.d.adgeneration.nativead.ADGNativeAd;
 
 import jp.supership.nativeads.views.nativeads.ADGNativeAdView;
 import jp.supership.nativeads.views.nativeads.FBNativeAdView;
+import jp.supership.nativeads.views.nativeads.FBNativeBannerAdView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
          * ログに出力されるデバイスハッシュを取得し、addTestDeviceを実行してください
          * AdSettings.addTestDevice("{device_hash}");
          */
-
         findViewById(R.id.btn_stopstart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (o instanceof NativeAd) {
                 FBNativeAdView nativeAdView = new FBNativeAdView(getApplicationContext());
                 nativeAdView.apply((NativeAd) o);
+                view = nativeAdView;
+            } else if (o instanceof NativeBannerAd) {
+                FBNativeBannerAdView nativeAdView = new FBNativeBannerAdView(getApplicationContext());
+                nativeAdView.apply((NativeBannerAd) o);
                 view = nativeAdView;
             }
 

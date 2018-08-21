@@ -17,7 +17,7 @@
             android:layout_height="38dp"
             android:layout_weight="1">
 
-            <ImageView
+            <com.facebook.ads.AdIconView
                 android:id="@+id/fb_nativead_view_icon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -119,6 +119,7 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
+
         </RelativeLayout>
 
     </LinearLayout>

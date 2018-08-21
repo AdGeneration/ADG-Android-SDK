@@ -51,6 +51,7 @@
                 android:text="AD"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="9sp" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -114,6 +115,7 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="12sp" />
+
         </RelativeLayout>
 
     </LinearLayout>
