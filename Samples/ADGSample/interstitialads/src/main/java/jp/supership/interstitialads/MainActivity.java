@@ -1,7 +1,7 @@
 package jp.supership.interstitialads;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
@@ -9,24 +9,34 @@ import com.socdm.d.adgeneration.ADGConsts;
 import com.socdm.d.adgeneration.interstitial.ADGInterstitial;
 import com.socdm.d.adgeneration.interstitial.ADGInterstitialListener;
 
+import jp.supership.interstitialads.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
     private ADGInterstitial adgInterstitial = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        // showボタンを非活性にしておく
+        binding.btnShow.setEnabled(false);
 
         adgInterstitial = new ADGInterstitial(this);
 
         // 管理画面から払い出された広告枠ID
         adgInterstitial.setLocationId("48549");
 
+        // テストモードを有効化
+        //adgInterstitial.setEnableTestMode(true);
+
         // Listenerの設定
         adgInterstitial.setAdListener(new AdListener());
 
-        findViewById(R.id.btn_preload).setOnClickListener(new View.OnClickListener() {
+        binding.btnPreload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 広告リクエスト
@@ -34,11 +44,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_show).setOnClickListener(new View.OnClickListener() {
+        binding.btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 広告表示
                 adgInterstitial.show();
+                // showボタンを非活性にしておく
+                binding.btnShow.setEnabled(false);
             }
         });
     }
@@ -56,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceiveAd() {
             Log.d(TAG, "Received an ad.");
+            binding.btnShow.setEnabled(true);
         }
 
         @Override

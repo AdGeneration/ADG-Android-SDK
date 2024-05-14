@@ -77,11 +77,7 @@ public class ADGNativeAdView extends RelativeLayout {
         borders.setColor(Color.WHITE);
         borders.setCornerRadius(10);
         borders.setStroke(3, mCTALabel.getTextColors().getDefaultColor());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            mCTALabel.setBackground(borders);
-        } else {
-            mCTALabel.setBackgroundDrawable(borders);
-        }
+        mCTALabel.setBackground(borders);
     }
 
     public void apply(ADGNativeAd nativeAd) {

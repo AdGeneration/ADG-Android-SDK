@@ -1,27 +1,64 @@
 package jp.supership.bannerads;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.graphics.Point;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.socdm.d.adgeneration.ADG;
 import com.socdm.d.adgeneration.ADGConsts;
 import com.socdm.d.adgeneration.ADGListener;
+import com.socdm.d.adgeneration.ADGSettings;
+
+import jp.supership.bannerads.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
     private ADG adg;
+    private String locationID = "48547";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
+        binding.textLocationID.setText("広告枠ID: " + this.locationID);
+        binding.buttonInfo.setOnClickListener(v -> {
+            this.showInfo();
+        });
+        binding.buttonReload.setOnClickListener(v -> {
+            this.reloadAd();
+        });
+
+        this.loadAd();
+    }
+
+    private void loadAd() {
+        // ADG
         adg = new ADG(this);
 
         // 管理画面から払い出された広告枠ID
-        adg.setLocationId("48547");
+        adg.setLocationId(this.locationID);
+
+        // テストモードを有効化
+        //adg.setEnableTestMode(true);
+        // geolocationを有効化
+        //ADGSettings.setGeolocationEnabled(true);
 
         /**
          * 枠サイズ
@@ -87,4 +124,59 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Did click ad.");
         }
     }
+
+    // UI
+    private String getInfoText() {
+        String ret = "";
+        ret += "Androidバージョン: " + Build.VERSION.RELEASE + "\n";
+        ret += "API Level: " + Build.VERSION.SDK_INT + "\n";
+        ret += "メーカー名: " + Build.MANUFACTURER + "\n";
+        ret += "モデル番号: " + Build.MODEL + "\n";
+        ret += "ブランド名: " + Build.BRAND + "\n";
+        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        ret += "国コード: " + tm.getNetworkCountryIso() + "\n";
+        ret += "MCC+MNC: " + tm.getNetworkOperator() + "\n";
+        ret += "サービスプロバイダの名前: " + tm.getNetworkOperatorName() + "\n";
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            ret += "NETWORKの状態: " + tm.getNetworkType() + "\n";
+        }
+        else {
+            ret += "NETWORKの状態: ((表示されるアラートで許可して、再表示してください))\n";
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 0);
+        }
+        ret += "locale: " + getResources().getConfiguration().locale + "\n";
+        ret += "density: " + getResources().getDisplayMetrics().density + "\n";
+        Point point = new Point();
+        getWindowManager().getDefaultDisplay().getSize(point);
+        ret += "dimensions.x: " + point.x + "\n";
+        ret += "dimensions.y: " + point.y + "\n";
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        ret += "widthDips: " + (dm.widthPixels / dm.density) + "\n";
+        ret += "heightDips: " + (dm.heightPixels / dm.density) + "\n";
+        return ret;
+    }
+
+    private void showInfo() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Info")
+                .setMessage(this.getInfoText())
+                .show();
+    }
+
+    private void reloadAd() {
+        FrameLayout ad_container = (FrameLayout) findViewById(R.id.ad_container);
+        ad_container.removeAllViews();
+        adg.stop();
+        adg = null;
+        this.loadAd();
+        adg.start();
+    }
+
 }
