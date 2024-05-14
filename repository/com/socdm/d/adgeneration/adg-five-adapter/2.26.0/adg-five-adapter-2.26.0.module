@@ -1,0 +1,58 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-five-adapter",
+    "version": "2.26.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.6.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "adg-five-adapter-2.26.0.aar",
+          "url": "adg-five-adapter-2.26.0.aar",
+          "size": 22390,
+          "sha512": "1c354851b95f3a94f8a2ab59b53a3bc6ee6db33f7b7eaaf5f18a6aa6b529bcac320c732d0ff4a8cc5e6dda879ce7e43c221b4758a667021c51eaa19025d03a06",
+          "sha256": "2008e6f6cbfcfe4121fc8b36d3c7502e554a22bfcff3bf78d89486cbbcefaaa7",
+          "sha1": "d97db4fba4dcdeff3d8475cbcf1588a40cf4d3cb",
+          "md5": "414af77b6bbbb9adc19df950acc80b87"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "adg-five-adapter-2.26.0.aar",
+          "url": "adg-five-adapter-2.26.0.aar",
+          "size": 22390,
+          "sha512": "1c354851b95f3a94f8a2ab59b53a3bc6ee6db33f7b7eaaf5f18a6aa6b529bcac320c732d0ff4a8cc5e6dda879ce7e43c221b4758a667021c51eaa19025d03a06",
+          "sha256": "2008e6f6cbfcfe4121fc8b36d3c7502e554a22bfcff3bf78d89486cbbcefaaa7",
+          "sha1": "d97db4fba4dcdeff3d8475cbcf1588a40cf4d3cb",
+          "md5": "414af77b6bbbb9adc19df950acc80b87"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-pangle-adapter",
+    "version": "2.26.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.6.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "adg-pangle-adapter-2.26.0.aar",
+          "url": "adg-pangle-adapter-2.26.0.aar",
+          "size": 51746,
+          "sha512": "9ff003d3c05e909c3066e12a52f71b9810b0bb3344be2e9c35adca2e508efdc752fd6c7ac3c399805f977ca8afe7b983a3114242217da4459bfa62de2d56b724",
+          "sha256": "15bdd8ab0949508c6d670d708d6e86d17a32f895baa7eaf223f1197dff22a8d3",
+          "sha1": "b15f700bbe519c5dbe03c9448bb26d7a5696f10d",
+          "md5": "dd14cc1e3f082aace0792c4cc07f3cc4"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.pangle.global",
+          "module": "ads-sdk",
+          "version": {
+            "requires": "5.9.0.2"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "18.0.1"
+          }
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.7.0"
+          }
+        },
+        {
+          "group": "androidx.constraintlayout",
+          "module": "constraintlayout",
+          "version": {
+            "requires": "2.1.4"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-pangle-adapter-2.26.0.aar",
+          "url": "adg-pangle-adapter-2.26.0.aar",
+          "size": 51746,
+          "sha512": "9ff003d3c05e909c3066e12a52f71b9810b0bb3344be2e9c35adca2e508efdc752fd6c7ac3c399805f977ca8afe7b983a3114242217da4459bfa62de2d56b724",
+          "sha256": "15bdd8ab0949508c6d670d708d6e86d17a32f895baa7eaf223f1197dff22a8d3",
+          "sha1": "b15f700bbe519c5dbe03c9448bb26d7a5696f10d",
+          "md5": "dd14cc1e3f082aace0792c4cc07f3cc4"
+        }
+      ]
+    }
+  ]
+}

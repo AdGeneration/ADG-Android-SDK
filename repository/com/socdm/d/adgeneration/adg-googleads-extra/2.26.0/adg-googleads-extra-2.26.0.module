@@ -1,0 +1,58 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-googleads-extra",
+    "version": "2.26.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.6.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "adg-googleads-extra-2.26.0.aar",
+          "url": "adg-googleads-extra-2.26.0.aar",
+          "size": 7761,
+          "sha512": "187a379209feb2ee87b640b82894e6ee6f625c4e07faf6c0fd3245aff1cb9f267dd854e35d31231856c960cb8d5b79855e5ece2e6d8c4fb7867a6fcc810268fc",
+          "sha256": "e551c68a6e1ac8894a17b60c2adfae1a17bfefed07764c7711368a3cfecdf4a5",
+          "sha1": "c34468512b7e55888de6fe95b66a485bbc4876cc",
+          "md5": "b51415d25c5a2b28c5ee45566e752f3e"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "adg-googleads-extra-2.26.0.aar",
+          "url": "adg-googleads-extra-2.26.0.aar",
+          "size": 7761,
+          "sha512": "187a379209feb2ee87b640b82894e6ee6f625c4e07faf6c0fd3245aff1cb9f267dd854e35d31231856c960cb8d5b79855e5ece2e6d8c4fb7867a6fcc810268fc",
+          "sha256": "e551c68a6e1ac8894a17b60c2adfae1a17bfefed07764c7711368a3cfecdf4a5",
+          "sha1": "c34468512b7e55888de6fe95b66a485bbc4876cc",
+          "md5": "b51415d25c5a2b28c5ee45566e752f3e"
+        }
+      ]
+    }
+  ]
+}
