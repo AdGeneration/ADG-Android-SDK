@@ -26,11 +26,11 @@
         {
           "name": "adg-googleads-extra-2.26.0.aar",
           "url": "adg-googleads-extra-2.26.0.aar",
-          "size": 7761,
-          "sha512": "187a379209feb2ee87b640b82894e6ee6f625c4e07faf6c0fd3245aff1cb9f267dd854e35d31231856c960cb8d5b79855e5ece2e6d8c4fb7867a6fcc810268fc",
-          "sha256": "e551c68a6e1ac8894a17b60c2adfae1a17bfefed07764c7711368a3cfecdf4a5",
-          "sha1": "c34468512b7e55888de6fe95b66a485bbc4876cc",
-          "md5": "b51415d25c5a2b28c5ee45566e752f3e"
+          "size": 7947,
+          "sha512": "420bb1568811488d1b81be3b1cdeeb2d9073efad268eda09550af44c3dd261a5f7970eb56735a676147f131c310de14ec790260654ca409767ec3ef823598ff1",
+          "sha256": "1af893d722e37f00820e302cab4545db5c9bb1cfe0e1ba0432dde603a67bcee8",
+          "sha1": "60e9cd3801faf324ed070d66740df85d5c1a3d6c",
+          "md5": "acebd111f2d90831bc2ec728be60a152"
         }
       ]
     },
@@ -42,15 +42,31 @@
         "org.gradle.libraryelements": "aar",
         "org.gradle.usage": "java-runtime"
       },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-base",
+          "version": {
+            "requires": "18.2.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "23.0.0"
+          }
+        }
+      ],
       "files": [
         {
           "name": "adg-googleads-extra-2.26.0.aar",
           "url": "adg-googleads-extra-2.26.0.aar",
-          "size": 7761,
-          "sha512": "187a379209feb2ee87b640b82894e6ee6f625c4e07faf6c0fd3245aff1cb9f267dd854e35d31231856c960cb8d5b79855e5ece2e6d8c4fb7867a6fcc810268fc",
-          "sha256": "e551c68a6e1ac8894a17b60c2adfae1a17bfefed07764c7711368a3cfecdf4a5",
-          "sha1": "c34468512b7e55888de6fe95b66a485bbc4876cc",
-          "md5": "b51415d25c5a2b28c5ee45566e752f3e"
+          "size": 7947,
+          "sha512": "420bb1568811488d1b81be3b1cdeeb2d9073efad268eda09550af44c3dd261a5f7970eb56735a676147f131c310de14ec790260654ca409767ec3ef823598ff1",
+          "sha256": "1af893d722e37f00820e302cab4545db5c9bb1cfe0e1ba0432dde603a67bcee8",
+          "sha1": "60e9cd3801faf324ed070d66740df85d5c1a3d6c",
+          "md5": "acebd111f2d90831bc2ec728be60a152"
         }
       ]
     }

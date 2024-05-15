@@ -35,11 +35,11 @@
         {
           "name": "adg-admob-mediation-2.26.0.aar",
           "url": "adg-admob-mediation-2.26.0.aar",
-          "size": 24421,
-          "sha512": "dfdff861494ca42359eae7865e6bd9d1d7268f9c98ddc4fede4baaf8ed8ae2f50f091f69417d3c9140b89745777b31114e154707f3e61521b935b1d44d5cdd3a",
-          "sha256": "851f7ad07b1b11f1c1cd312d3411c1fb2e6c13c40ce9e0b7d1e06f13debd5e02",
-          "sha1": "de754bcd648ce37ef3ce6c5ac6ec71caa7fc2539",
-          "md5": "e414a53331bc09751c906a44ad8460f2"
+          "size": 24387,
+          "sha512": "1d754a94de3ea0e62f6ba31d9250ac49b846b8d828f390c12e1d3e47af84f1fea5c2f0703672bb1344627ef5fc6c9b35771fc6306b70657c4b5bc4937c5e1b38",
+          "sha256": "9433a3f7ae8759f82e93623e79721dabeedd354577399f70a51ff0a7c71762d3",
+          "sha1": "e0c4094935dfce4a7cd9cb4a6e8d692014ffb202",
+          "md5": "8f88c50d7c80fd22a1f14ea9337d1535"
         }
       ]
     },
@@ -60,13 +60,6 @@
           }
         },
         {
-          "group": "junit",
-          "module": "junit",
-          "version": {
-            "requires": "4.13.2"
-          }
-        },
-        {
           "group": "com.google.android.gms",
           "module": "play-services-ads",
           "version": {
@@ -77,7 +70,7 @@
           "group": "com.socdm.d.adgeneration",
           "module": "adg",
           "version": {
-            "requires": "2.24.1"
+            "requires": "2.26.0"
           }
         }
       ],
@@ -85,11 +78,11 @@
         {
           "name": "adg-admob-mediation-2.26.0.aar",
           "url": "adg-admob-mediation-2.26.0.aar",
-          "size": 24421,
-          "sha512": "dfdff861494ca42359eae7865e6bd9d1d7268f9c98ddc4fede4baaf8ed8ae2f50f091f69417d3c9140b89745777b31114e154707f3e61521b935b1d44d5cdd3a",
-          "sha256": "851f7ad07b1b11f1c1cd312d3411c1fb2e6c13c40ce9e0b7d1e06f13debd5e02",
-          "sha1": "de754bcd648ce37ef3ce6c5ac6ec71caa7fc2539",
-          "md5": "e414a53331bc09751c906a44ad8460f2"
+          "size": 24387,
+          "sha512": "1d754a94de3ea0e62f6ba31d9250ac49b846b8d828f390c12e1d3e47af84f1fea5c2f0703672bb1344627ef5fc6c9b35771fc6306b70657c4b5bc4937c5e1b38",
+          "sha256": "9433a3f7ae8759f82e93623e79721dabeedd354577399f70a51ff0a7c71762d3",
+          "sha1": "e0c4094935dfce4a7cd9cb4a6e8d692014ffb202",
+          "md5": "8f88c50d7c80fd22a1f14ea9337d1535"
         }
       ]
     }

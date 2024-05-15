@@ -11,4 +11,18 @@
   <artifactId>adg-googleads-extra</artifactId>
   <version>2.26.0</version>
   <packaging>aar</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.android.gms</groupId>
+      <artifactId>play-services-base</artifactId>
+      <version>18.2.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android.gms</groupId>
+      <artifactId>play-services-ads</artifactId>
+      <version>23.0.0</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
 </project>

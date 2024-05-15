@@ -26,11 +26,11 @@
         {
           "name": "adg-five-adapter-2.26.0.aar",
           "url": "adg-five-adapter-2.26.0.aar",
-          "size": 22390,
-          "sha512": "1c354851b95f3a94f8a2ab59b53a3bc6ee6db33f7b7eaaf5f18a6aa6b529bcac320c732d0ff4a8cc5e6dda879ce7e43c221b4758a667021c51eaa19025d03a06",
-          "sha256": "2008e6f6cbfcfe4121fc8b36d3c7502e554a22bfcff3bf78d89486cbbcefaaa7",
-          "sha1": "d97db4fba4dcdeff3d8475cbcf1588a40cf4d3cb",
-          "md5": "414af77b6bbbb9adc19df950acc80b87"
+          "size": 22656,
+          "sha512": "a2d47d8c1f167fa525b7386d2e68cc3a62aa38b283e5c25117a0982d674cae3e5ecadc834b66ec9b38381a70afc7361310ca30f18cfdfe369d032044f876a0db",
+          "sha256": "5e1e99d8eb73747ccfb3bba76d2f80189745593d3d4a950bdb108841b1db5c82",
+          "sha1": "6da28abdd83f3542e5f655c24af8411424d3a016",
+          "md5": "10da3a1489fc6ed3e7bd76ffddc91717"
         }
       ]
     },
@@ -42,15 +42,24 @@
         "org.gradle.libraryelements": "aar",
         "org.gradle.usage": "java-runtime"
       },
+      "dependencies": [
+        {
+          "group": "com.linecorp.adsnetwork",
+          "module": "fivead",
+          "version": {
+            "requires": "2.7.20240214"
+          }
+        }
+      ],
       "files": [
         {
           "name": "adg-five-adapter-2.26.0.aar",
           "url": "adg-five-adapter-2.26.0.aar",
-          "size": 22390,
-          "sha512": "1c354851b95f3a94f8a2ab59b53a3bc6ee6db33f7b7eaaf5f18a6aa6b529bcac320c732d0ff4a8cc5e6dda879ce7e43c221b4758a667021c51eaa19025d03a06",
-          "sha256": "2008e6f6cbfcfe4121fc8b36d3c7502e554a22bfcff3bf78d89486cbbcefaaa7",
-          "sha1": "d97db4fba4dcdeff3d8475cbcf1588a40cf4d3cb",
-          "md5": "414af77b6bbbb9adc19df950acc80b87"
+          "size": 22656,
+          "sha512": "a2d47d8c1f167fa525b7386d2e68cc3a62aa38b283e5c25117a0982d674cae3e5ecadc834b66ec9b38381a70afc7361310ca30f18cfdfe369d032044f876a0db",
+          "sha256": "5e1e99d8eb73747ccfb3bba76d2f80189745593d3d4a950bdb108841b1db5c82",
+          "sha1": "6da28abdd83f3542e5f655c24af8411424d3a016",
+          "md5": "10da3a1489fc6ed3e7bd76ffddc91717"
         }
       ]
     }

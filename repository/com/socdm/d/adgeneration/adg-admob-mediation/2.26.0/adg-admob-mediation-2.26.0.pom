@@ -19,12 +19,6 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
       <groupId>com.google.android.gms</groupId>
       <artifactId>play-services-ads</artifactId>
       <version>23.0.0</version>
@@ -33,7 +27,7 @@
     <dependency>
       <groupId>com.socdm.d.adgeneration</groupId>
       <artifactId>adg</artifactId>
-      <version>2.24.1</version>
+      <version>2.26.0</version>
       <scope>runtime</scope>
     </dependency>
   </dependencies>
