@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'jp.supership.bannerads'
+    buildFeatures {
+        viewBinding true
+    }
+    compileSdkVersion 33
+    defaultConfig {
+        applicationId "jp.supership.bannerads"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.gms:play-services-base:18.2.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+    implementation 'com.socdm.d.adgeneration:adg:2.26.2'
+    implementation 'com.socdm.d.adgeneration:adg-admob-adapter:+'
+    implementation 'com.socdm.d.adgeneration:adg-five-adapter:+'
+    implementation 'com.socdm.d.adgeneration:adg-maio-adapter:+'
+    implementation 'com.socdm.d.adgeneration:adg-pangle-adapter:+'
+    implementation 'com.socdm.d.adgeneration:adg-unityads-adapter:+'
+}

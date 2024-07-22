@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NativeAds</string>
+    <string name="ad_unit_id_format">広告枠ID: %s</string>
+</resources>
