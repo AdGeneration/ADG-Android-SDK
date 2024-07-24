@@ -1,0 +1,90 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-mediation",
+    "version": "2.26.200",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.6.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.7.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.26.200.aar",
+          "url": "adg-admob-mediation-2.26.200.aar",
+          "size": 27607,
+          "sha512": "a05e370502a5406da32bb3a191bcb91651ecc52aaae66538d9a141bc0c5ba70379921906da55ecba1be5f56440498b97c7f6a01b6f88fa551127c3193e31f054",
+          "sha256": "3edf8188ee40cdc9d3808a7b47b4ecc114c65db66b1deda86adcd0ad9196a566",
+          "sha1": "d7d887405f79d34c52995eed1305cfb29ac5b139",
+          "md5": "6b2c00c813e7ccc938ac58ef2433995e"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.7.20"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "+"
+          }
+        },
+        {
+          "group": "com.socdm.d.adgeneration",
+          "module": "adg",
+          "version": {
+            "requires": "2.26.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.26.200.aar",
+          "url": "adg-admob-mediation-2.26.200.aar",
+          "size": 27607,
+          "sha512": "a05e370502a5406da32bb3a191bcb91651ecc52aaae66538d9a141bc0c5ba70379921906da55ecba1be5f56440498b97c7f6a01b6f88fa551127c3193e31f054",
+          "sha256": "3edf8188ee40cdc9d3808a7b47b4ecc114c65db66b1deda86adcd0ad9196a566",
+          "sha1": "d7d887405f79d34c52995eed1305cfb29ac5b139",
+          "md5": "6b2c00c813e7ccc938ac58ef2433995e"
+        }
+      ]
+    }
+  ]
+}
