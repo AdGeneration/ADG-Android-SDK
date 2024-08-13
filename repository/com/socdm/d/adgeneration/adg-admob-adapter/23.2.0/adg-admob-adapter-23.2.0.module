@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-adapter",
+    "version": "23.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.6.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "adg-admob-adapter-23.2.0.aar",
+          "url": "adg-admob-adapter-23.2.0.aar",
+          "size": 28970,
+          "sha512": "c9087dbdd59369578b1952c85595d32afbf47608d50d316b051eabcde66fef2ab7bedacbe2af556b1b86175173b1a9b99f461187af013f6d298cc9733ae4815e",
+          "sha256": "eae3af78081a051762e91370f9b479868fbe496a9d162dd9c62eda4233b0278c",
+          "sha1": "59a494214e6afb84ecc52721bf079f5d2157621f",
+          "md5": "ea0329b200051957af1287eb8c623c00"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "23.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-adapter-23.2.0.aar",
+          "url": "adg-admob-adapter-23.2.0.aar",
+          "size": 28970,
+          "sha512": "c9087dbdd59369578b1952c85595d32afbf47608d50d316b051eabcde66fef2ab7bedacbe2af556b1b86175173b1a9b99f461187af013f6d298cc9733ae4815e",
+          "sha256": "eae3af78081a051762e91370f9b479868fbe496a9d162dd9c62eda4233b0278c",
+          "sha1": "59a494214e6afb84ecc52721bf079f5d2157621f",
+          "md5": "ea0329b200051957af1287eb8c623c00"
+        }
+      ]
+    }
+  ]
+}
