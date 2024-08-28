@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h3>WebViewパラメータチェック</h3>
+<div id="id_div">id: 存在しない</div>
+<div id="appbundle_div">appbundle: 存在しない</div>
+<br>
+<div id="message_div" style="color:red"></div>
+
+<script>
+      const idDiv = document.getElementById("id_div");
+      const appbundleDiv = document.getElementById("appbundle_div");
+      const messageDiv = document.getElementById("message_div");
+      let mesageList = []
+
+      if(window.adgAdParams){
+        if(window?.adgAdParams?.idfa){
+          idDiv.innerHTML = `id: ${window.adgAdParams.idfa}`;
+        }else{
+          mesageList.push("idfaが存在しません");
+        }
+        if(window?.adgAdParams?.appbundle){
+          appbundleDiv.innerHTML = `appbundle: ${window.adgAdParams.appbundle}`;
+        }else{
+          mesageList.push("appbundleが存在しません");
+        }
+      }else if(window.Android){
+        if(window?.Android?.getAdvertisingId){
+          idDiv.innerHTML = `id: ${window.Android.getAdvertisingId()}`;
+        }else{
+          mesageList.push("advertising_idにアクセスできません");
+        }
+        if(window?.Android?.getAppBundle){
+          appbundleDiv.innerHTML = `appbundle: ${window.Android.getAppBundle()}`;
+        }else{
+          mesageList.push("appbundleにアクセスできません");
+        }
+      }else{
+        mesageList.push("SDKからパラメータを取得できません");
+      }
+
+      //最後にメッセージを表示する
+      mesageList.forEach((message)=>{
+        messageDiv.innerHTML += message + "<br>";
+      })
+
+</script>
+
+<div id="adg_area"></div>
+<script>
+/*
+idfa : iOSの場合この変数にidfaがセットされているとする（オプトアウト時除く）
+aaid : Androidの場合この変数にAdvertising IDがセットされているとする（オプトアウト時除く）
+appbundle : 実際にはこの変数にBundle IDかPackage Nameがセットされているとする。
+*/
+(function() {
+    const div = document.getElementById("adg_area");
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+
+    let idfa = window?.adgAdParams?.idfa ?? "";
+    let advertising_id = window?.Android?.getAdvertisingId() ?? "";
+    let appbundle = "";
+    if (window?.adgAdParams?.appbundle){
+      appbundle = adgAdParams?.appbundle
+    } else {
+      appbundle = window?.Android?.getAppBundle() ?? "";
+    }
+               
+
+    // scriptのsrcにセットするテキストは実際に管理画面から取得されるタグのsrcと合わせてください。ただし、asyncは必ずtrueにしてください。
+    let srcText ='https://i.socdm.com/sdk/js/adg-script-loader.js?id=48547&targetID=adg_48547&displayid=1&adType=SP&async=true&tagver=2.0.0';
+    if(idfa.length > 0){
+        srcText += '&idfa=' + encodeURIComponent(idfa);
+    }
+    else if(advertising_id.length > 0){
+        srcText += '&advertising_id=' +encodeURIComponent(advertising_id);
+    }
+    if(appbundle.length > 0){
+        srcText += '&appbundle=' + encodeURIComponent(appbundle);
+    }
+    script.src =srcText;
+    if(div != null){
+        div.appendChild(script);
+    }
+})();
+
+</script>
+</body>
+</html>
