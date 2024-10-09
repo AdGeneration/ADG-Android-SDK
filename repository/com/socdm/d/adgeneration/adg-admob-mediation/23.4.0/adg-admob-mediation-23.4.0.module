@@ -1,0 +1,90 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-mediation",
+    "version": "23.4.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.6.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-23.4.0.aar",
+          "url": "adg-admob-mediation-23.4.0.aar",
+          "size": 27598,
+          "sha512": "77f0de5bf75b03946aff8e488f2a7202db12948256ff3afdefa7033f2b38fc71d558aad0204fff2cf64e38bdd5283d751388c8f522ed92238d08cc6e7005325f",
+          "sha256": "f046f2a135661dac2e6e67a0e53293cf430cd2be903f4ae8063732d1b1e63ca4",
+          "sha1": "1bb63fcc92c1bb9029ca4487dbcbbd179df10fcb",
+          "md5": "fe9aa7f122a7dd675b49fd3160c55366"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "23.4.0"
+          }
+        },
+        {
+          "group": "com.socdm.d.adgeneration",
+          "module": "adg",
+          "version": {
+            "requires": "2.26.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-23.4.0.aar",
+          "url": "adg-admob-mediation-23.4.0.aar",
+          "size": 27598,
+          "sha512": "77f0de5bf75b03946aff8e488f2a7202db12948256ff3afdefa7033f2b38fc71d558aad0204fff2cf64e38bdd5283d751388c8f522ed92238d08cc6e7005325f",
+          "sha256": "f046f2a135661dac2e6e67a0e53293cf430cd2be903f4ae8063732d1b1e63ca4",
+          "sha1": "1bb63fcc92c1bb9029ca4487dbcbbd179df10fcb",
+          "md5": "fe9aa7f122a7dd675b49fd3160c55366"
+        }
+      ]
+    }
+  ]
+}
