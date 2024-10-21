@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         // デバッグログ出力設定。リリース時は[必ず]falseにしてください
         ADGSettings.setDebugLogging(true);
 
-        ADGDebugUtils.logSDKDetails();
+        ADGDebugUtils.logSDKDetails(this);
 
         binding.btnStopstart.setOnClickListener(v -> reloadAd());
         binding.textLocationID.setText(getString(R.string.ad_unit_id_format, this.locationID));

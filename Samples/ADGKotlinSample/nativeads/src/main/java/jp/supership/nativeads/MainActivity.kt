@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         // デバッグログ出力設定。リリース時は[必ず]falseにしてください
         ADGSettings.setDebugLogging(true)
 
-        ADGDebugUtils.logSDKDetails()
+        ADGDebugUtils.logSDKDetails(this)
 
         binding.apply {
             textLocationID.text = getString(R.string.ad_unit_id_format, locationID)
