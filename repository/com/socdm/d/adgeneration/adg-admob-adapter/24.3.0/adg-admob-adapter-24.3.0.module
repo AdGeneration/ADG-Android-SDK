@@ -1,0 +1,106 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-adapter",
+    "version": "24.3.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-adapter-24.3.0.aar",
+          "url": "adg-admob-adapter-24.3.0.aar",
+          "size": 15846,
+          "sha512": "8908c8fdba77f8061532f790df6eb7e7f97fa0b92557b0bc7a32f91a91d13ecc14e922d1b9139b3fc5db6962be298b1f85320c7db182748d94dc561095124dc3",
+          "sha256": "32f12fd81399ffa90c8246b4fae19ffb7ed7f2bfe751e3d81f8059735e6d3a6f",
+          "sha1": "b6fea245e52998c3b21294899d912b4c468b60e6",
+          "md5": "4559276c3aacc20588390d873e7285ee"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "24.3.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-adapter-24.3.0.aar",
+          "url": "adg-admob-adapter-24.3.0.aar",
+          "size": 15846,
+          "sha512": "8908c8fdba77f8061532f790df6eb7e7f97fa0b92557b0bc7a32f91a91d13ecc14e922d1b9139b3fc5db6962be298b1f85320c7db182748d94dc561095124dc3",
+          "sha256": "32f12fd81399ffa90c8246b4fae19ffb7ed7f2bfe751e3d81f8059735e6d3a6f",
+          "sha1": "b6fea245e52998c3b21294899d912b4c468b60e6",
+          "md5": "4559276c3aacc20588390d873e7285ee"
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "files": [
+        {
+          "name": "adg-admob-adapter-24.3.0-sources.jar",
+          "url": "adg-admob-adapter-24.3.0-sources.jar",
+          "size": 11715,
+          "sha512": "72f9006d189a784626f582d4b690c2dcdb29dfd00bfcbae07d5eb754301cd9d543503c9a620237e12636c985a8f94000e118a516a47d553fdf0e2a8228dd5e98",
+          "sha256": "1e57e648b4ca9a78c93feac04892fcab4cb1f964d51f2a12ca678a20754ad025",
+          "sha1": "2e0b66522dc6b9e3f9c6d3d37e48a4c171e5e5ee",
+          "md5": "c7c8faadde7f57bb06fb58e7f8cea53c"
+        }
+      ]
+    }
+  ]
+}
