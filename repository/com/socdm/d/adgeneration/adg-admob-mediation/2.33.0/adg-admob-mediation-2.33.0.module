@@ -1,0 +1,113 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-mediation",
+    "version": "2.33.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.33.0.aar",
+          "url": "adg-admob-mediation-2.33.0.aar",
+          "size": 14023,
+          "sha512": "d7e1dbac6f40bcd2b425f69c64a00d59d5c37bfc6a4e3f4bd86b3e483feb8adb59afb787c50f412ed761a45c4a34f43f6c96725c5b8cedcbc953c3d88e9f095d",
+          "sha256": "a06a1707cca86bf827de73ee1c99f9c879bcff54a99399a6b068d53880f38095",
+          "sha1": "c5d9df70266f8bf0f51bf02578d9486df0745fb9",
+          "md5": "391d8012db57aa3df4340d276485b4fe"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "24.6.0"
+          }
+        },
+        {
+          "group": "com.socdm.d.adgeneration",
+          "module": "adg",
+          "version": {
+            "requires": "2.33.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.33.0.aar",
+          "url": "adg-admob-mediation-2.33.0.aar",
+          "size": 14023,
+          "sha512": "d7e1dbac6f40bcd2b425f69c64a00d59d5c37bfc6a4e3f4bd86b3e483feb8adb59afb787c50f412ed761a45c4a34f43f6c96725c5b8cedcbc953c3d88e9f095d",
+          "sha256": "a06a1707cca86bf827de73ee1c99f9c879bcff54a99399a6b068d53880f38095",
+          "sha1": "c5d9df70266f8bf0f51bf02578d9486df0745fb9",
+          "md5": "391d8012db57aa3df4340d276485b4fe"
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.33.0-sources.jar",
+          "url": "adg-admob-mediation-2.33.0-sources.jar",
+          "size": 19549,
+          "sha512": "72a59a266f63f612637f74a7db111e75a12b9c947500979483be72ad7ff75a667fbc59f7ab7e2f2cdb377cf9e368ec45c7ac0ff3fa165f7b01ea69020d59f33c",
+          "sha256": "74420f827eacb5a4ad6579e148c495ef6aa5a198a7a05c7944be569e1a8a0db7",
+          "sha1": "2555918a95d871082d1e845e130fb84470e3a1c6",
+          "md5": "09a110e065441f1d28f8c4b426f20046"
+        }
+      ]
+    }
+  ]
+}
