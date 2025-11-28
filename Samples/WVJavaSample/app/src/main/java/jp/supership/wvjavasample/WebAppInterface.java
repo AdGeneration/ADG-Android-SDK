@@ -1,6 +1,7 @@
 package jp.supership.wvjavasample;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 
@@ -46,5 +47,10 @@ public class WebAppInterface {
     public String getAdvertisingId() {
         String adid = advertising_id;
         return !isLAT ? adid : "";
+    }
+
+    @JavascriptInterface
+    public String getPlatformV() {
+        return Build.VERSION.RELEASE;
     }
 }

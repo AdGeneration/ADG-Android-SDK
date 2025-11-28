@@ -9,46 +9,58 @@
 <h3>WebViewパラメータチェック</h3>
 <div id="id_div">id: 存在しない</div>
 <div id="appbundle_div">appbundle: 存在しない</div>
+<div id="platformv_div">platformv: 存在しない</div>
 <br>
 <div id="message_div" style="color:red"></div>
 
 <script>
       const idDiv = document.getElementById("id_div");
       const appbundleDiv = document.getElementById("appbundle_div");
+      const platformvDiv = document.getElementById("platformv_div");
       const messageDiv = document.getElementById("message_div");
-      let mesageList = []
+      let messageList = []
 
-      if(window.adgAdParams){
-        if(window?.adgAdParams?.idfa){
-          idDiv.innerHTML = `id: ${window.adgAdParams.idfa}`;
-        }else{
-          mesageList.push("idfaが存在しません");
+      if (window?.adgAdParams) {
+        const { idfa, appbundle, platformv } = window.adgAdParams;
+        if (idfa) {
+          idDiv.innerHTML = `id: ${idfa}`;
+        } else {
+          messageList.push("idfaが存在しません");
         }
-        if(window?.adgAdParams?.appbundle){
-          appbundleDiv.innerHTML = `appbundle: ${window.adgAdParams.appbundle}`;
-        }else{
-          mesageList.push("appbundleが存在しません");
+        if (appbundle) {
+          appbundleDiv.innerHTML = `appbundle: ${appbundle}`;
+        } else {
+          messageList.push("appbundleが存在しません");
         }
-      }else if(window.Android){
-        if(window?.Android?.getAdvertisingId){
+        if (platformv) {
+          platformvDiv.innerHTML = `platformv: ${platformv}`;
+        } else {
+          messageList.push("platformvが存在しません");
+        }
+      } else if (window?.Android) {
+        if (window.Android.getAdvertisingId) {
           idDiv.innerHTML = `id: ${window.Android.getAdvertisingId()}`;
-        }else{
-          mesageList.push("advertising_idにアクセスできません");
+        } else {
+          messageList.push("advertising_idにアクセスできません");
         }
-        if(window?.Android?.getAppBundle){
+        if (window.Android.getAppBundle) {
           appbundleDiv.innerHTML = `appbundle: ${window.Android.getAppBundle()}`;
-        }else{
-          mesageList.push("appbundleにアクセスできません");
+        } else {
+          messageList.push("appbundleにアクセスできません");
         }
-      }else{
-        mesageList.push("SDKからパラメータを取得できません");
+        if (window.Android.getPlatformV) {
+          platformvDiv.innerHTML = `platformv: ${window.Android.getPlatformV()}`;
+        } else {
+          messageList.push("platformvにアクセスできません");
+        }
+      } else {
+        messageList.push("SDKからパラメータを取得できません");
       }
 
       //最後にメッセージを表示する
-      mesageList.forEach((message)=>{
+      messageList.forEach((message)=>{
         messageDiv.innerHTML += message + "<br>";
       })
-
 </script>
 
 <div id="adg_area"></div>
@@ -57,6 +69,7 @@
 idfa : iOSの場合この変数にidfaがセットされているとする（オプトアウト時除く）
 aaid : Androidの場合この変数にAdvertising IDがセットされているとする（オプトアウト時除く）
 appbundle : 実際にはこの変数にBundle IDかPackage Nameがセットされているとする。
+platformv : iOS/Androidのバージョンがセットされているとする。
 */
 (function() {
     const div = document.getElementById("adg_area");
@@ -64,13 +77,9 @@ appbundle : 実際にはこの変数にBundle IDかPackage Nameがセットさ�
     script.type = 'text/javascript';
 
     let idfa = window?.adgAdParams?.idfa ?? "";
-    let advertising_id = window?.Android?.getAdvertisingId() ?? "";
-    let appbundle = "";
-    if (window?.adgAdParams?.appbundle){
-      appbundle = adgAdParams?.appbundle
-    } else {
-      appbundle = window?.Android?.getAppBundle() ?? "";
-    }
+    let advertising_id = window?.Android?.getAdvertisingId?.() ?? "";
+    let appbundle = window?.adgAdParams?.appbundle ?? window?.Android?.getAppBundle?.() ?? "";
+    let platformv = window?.adgAdParams?.platformv ?? window?.Android?.getPlatformV?.() ?? "";
                
 
     // scriptのsrcにセットするテキストは実際に管理画面から取得されるタグのsrcと合わせてください。ただし、asyncは必ずtrueにしてください。
@@ -84,12 +93,14 @@ appbundle : 実際にはこの変数にBundle IDかPackage Nameがセットさ�
     if(appbundle.length > 0){
         srcText += '&appbundle=' + encodeURIComponent(appbundle);
     }
+    if(platformv.length > 0){
+        srcText += '&platformv=' + encodeURIComponent(platformv);
+    }
     script.src =srcText;
     if(div != null){
         div.appendChild(script);
     }
 })();
-
 </script>
 </body>
 </html>

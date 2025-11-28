@@ -1,6 +1,7 @@
 package jp.supership.wvkotlinsample
 
 import android.content.Context
+import android.os.Build
 import android.util.Log
 import android.webkit.JavascriptInterface
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
@@ -44,5 +45,10 @@ class WebAppInterface {
     open fun getAdvertisingId(): String {
         val adid = advertising_id ?: ""
         return if (!isLAT) adid else ""
+    }
+
+    @JavascriptInterface
+    open fun getPlatformV(): String {
+        return Build.VERSION.RELEASE
     }
 }
