@@ -1,6 +1,5 @@
 package jp.supership.nativeads.views.nativeads;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,7 +26,6 @@ import java.net.URL;
 
 public class ADGNativeAdView extends RelativeLayout {
 
-    private Activity mActivity;
     private RelativeLayout mContainer;
     private ImageView mIconImageView;
     private TextView mTitleLabel;
@@ -55,9 +53,6 @@ public class ADGNativeAdView extends RelativeLayout {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        if (context instanceof Activity) {
-            mActivity = (Activity) context;
-        }
         View layout = LayoutInflater.from(context).inflate(R.layout.adg_nativead_view, this);
         mContainer = (RelativeLayout) layout.findViewById(R.id.adg_nativead_view_container);
         mIconImageView = (ImageView) layout.findViewById(R.id.adg_nativead_view_icon);
@@ -99,7 +94,7 @@ public class ADGNativeAdView extends RelativeLayout {
 
         // メイン画像・動画
         if (nativeAd.canLoadMedia()) {
-            ADGMediaView mediaView = new ADGMediaView(mActivity);
+            ADGMediaView mediaView = new ADGMediaView(getContext());
             mediaView.setAdgNativeAd(nativeAd);
             mMediaViewContainer.addView(
                     mediaView,

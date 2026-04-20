@@ -1,6 +1,5 @@
 package jp.supership.nativeads.views.nativeads
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -24,7 +23,6 @@ import java.net.URL
 
 class ADGNativeAdView : RelativeLayout {
 
-    private var activity: Activity? = null
     private lateinit var container: RelativeLayout
     private lateinit var iconImageView: ImageView
     private lateinit var titleLabel: TextView
@@ -44,9 +42,6 @@ class ADGNativeAdView : RelativeLayout {
     }
 
     private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        if (context is Activity) {
-            activity = context
-        }
         val layout = LayoutInflater.from(context).inflate(R.layout.adg_nativead_view, this)
         container = layout.findViewById(R.id.adg_nativead_view_container)
         iconImageView = layout.findViewById(R.id.adg_nativead_view_icon)
@@ -85,7 +80,7 @@ class ADGNativeAdView : RelativeLayout {
         }
 
         if (nativeAd.canLoadMedia()) {
-            val mediaView = ADGMediaView(activity)
+            val mediaView = ADGMediaView(context)
             mediaView.setAdgNativeAd(nativeAd)
             mediaViewContainer.addView(mediaView, LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
             mediaView.load()
