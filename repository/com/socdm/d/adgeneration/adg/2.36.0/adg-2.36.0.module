@@ -1,0 +1,113 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg",
+    "version": "2.36.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-2.36.0.aar",
+          "url": "adg-2.36.0.aar",
+          "size": 1245132,
+          "sha512": "bb371679e8b6433da2033a43ed9931ea06a7975075c14b0ddede8443bcb15b0595aecbd39a7bca03b061c367aed2c648622c63947f37cf507a0711466da0767b",
+          "sha256": "a354343f03c963581d7bced2f36b0aeefdcb0f4f113b7ce858a59d0ee8ed4949",
+          "sha1": "cec0eeb158ebab7d2d6de9b4292be32b73e4d00d",
+          "md5": "b9ece8f6c854ea37f32c1886d217c155"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-2.36.0.aar",
+          "url": "adg-2.36.0.aar",
+          "size": 1245132,
+          "sha512": "bb371679e8b6433da2033a43ed9931ea06a7975075c14b0ddede8443bcb15b0595aecbd39a7bca03b061c367aed2c648622c63947f37cf507a0711466da0767b",
+          "sha256": "a354343f03c963581d7bced2f36b0aeefdcb0f4f113b7ce858a59d0ee8ed4949",
+          "sha1": "cec0eeb158ebab7d2d6de9b4292be32b73e4d00d",
+          "md5": "b9ece8f6c854ea37f32c1886d217c155"
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "files": [
+        {
+          "name": "adg-2.36.0-sources.jar",
+          "url": "adg-2.36.0-sources.jar",
+          "size": 711336,
+          "sha512": "e6974b8668a0b3092a051a92a36083a06847c05d58087339cf364fb934d678e7a70e9ab92e224435d9c7548ed5477ea385fd94be35d35152fff57db745f31b8b",
+          "sha256": "32c26b6657a5a2c1850697660d84b23a5f851b40d052e5e23b85d3d0b14a3766",
+          "sha1": "38137f90395d4eee9c24e5252fe5e54b76774c51",
+          "md5": "f8595306649284e57dea1af3e983e38c"
+        }
+      ]
+    }
+  ]
+}
