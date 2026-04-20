@@ -110,8 +110,10 @@ public class ADGNativeAdView extends RelativeLayout {
         }
 
         // インフォメーションアイコン
-        ADGInformationIconView infoIcon = new ADGInformationIconView(getContext(), nativeAd);
-        mMediaViewContainer.addView(infoIcon);
+        ADGInformationIconView infoIcon = ADGInformationIconView.create(getContext(), nativeAd);
+        if (infoIcon != null) {
+            mMediaViewContainer.addView(infoIcon);
+        }
 
         // 広告主
         if (nativeAd.getSponsored() != null) {

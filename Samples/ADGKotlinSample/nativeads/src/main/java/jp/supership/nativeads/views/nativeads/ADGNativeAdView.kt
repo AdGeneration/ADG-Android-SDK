@@ -91,8 +91,9 @@ class ADGNativeAdView : RelativeLayout {
             mediaView.load()
         }
 
-        val infoIcon = ADGInformationIconView(context, nativeAd)
-        mediaViewContainer.addView(infoIcon)
+        ADGInformationIconView.create(context, nativeAd)?.let {
+            mediaViewContainer.addView(it)
+        }
 
         sponsoredLabel.text = nativeAd.sponsored?.value ?: "sponsored"
 
