@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-adapter",
+    "version": "25.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "adg-admob-adapter-25.2.0.aar",
+          "url": "adg-admob-adapter-25.2.0.aar",
+          "size": 13367,
+          "sha512": "6e017544e309e4f666ff95eeaa9815ba1fcf939695122de576a3a6da77118c90ec9b296bd6ec65d32f50d48e6c63ffea1a7b4a2b25aeb3c3c5a7763fbf6c23e0",
+          "sha256": "265d89aeffdeacf7176d029ba3de9d7926b471d57ce2378096774e353d752a7a",
+          "sha1": "2689dc2445ec9c9c5ff34bca31dd53f7f411143d",
+          "md5": "f6dc564df6dce5da5ce1f5364960eca1"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "25.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-adapter-25.2.0.aar",
+          "url": "adg-admob-adapter-25.2.0.aar",
+          "size": 13367,
+          "sha512": "6e017544e309e4f666ff95eeaa9815ba1fcf939695122de576a3a6da77118c90ec9b296bd6ec65d32f50d48e6c63ffea1a7b4a2b25aeb3c3c5a7763fbf6c23e0",
+          "sha256": "265d89aeffdeacf7176d029ba3de9d7926b471d57ce2378096774e353d752a7a",
+          "sha1": "2689dc2445ec9c9c5ff34bca31dd53f7f411143d",
+          "md5": "f6dc564df6dce5da5ce1f5364960eca1"
+        }
+      ]
+    }
+  ]
+}
