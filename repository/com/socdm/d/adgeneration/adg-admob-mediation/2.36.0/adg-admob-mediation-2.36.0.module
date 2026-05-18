@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-mediation",
+    "version": "2.36.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.36.0.aar",
+          "url": "adg-admob-mediation-2.36.0.aar",
+          "size": 11509,
+          "sha512": "d08ab43a87bd28eb4d22c23f4945edbaa9f1eb4bd84b468c1b10272ec91fdaeee19a348d3d983f7c1076cc6020f69128d066a4843580f93a419bd0d14f7bd83b",
+          "sha256": "8d462810ab2550d0acf6bf456cbec0d6a5d303661acd4af8a113bfbe4688adb8",
+          "sha1": "6b9e269e7cb8d72acc01f894677043be2bb094ab",
+          "md5": "15c7a827a75b731cf2050bfc0fa97acf"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "25.2.0"
+          }
+        },
+        {
+          "group": "com.socdm.d.adgeneration",
+          "module": "adg",
+          "version": {
+            "requires": "2.36.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.36.0.aar",
+          "url": "adg-admob-mediation-2.36.0.aar",
+          "size": 11509,
+          "sha512": "d08ab43a87bd28eb4d22c23f4945edbaa9f1eb4bd84b468c1b10272ec91fdaeee19a348d3d983f7c1076cc6020f69128d066a4843580f93a419bd0d14f7bd83b",
+          "sha256": "8d462810ab2550d0acf6bf456cbec0d6a5d303661acd4af8a113bfbe4688adb8",
+          "sha1": "6b9e269e7cb8d72acc01f894677043be2bb094ab",
+          "md5": "15c7a827a75b731cf2050bfc0fa97acf"
+        }
+      ]
+    }
+  ]
+}
