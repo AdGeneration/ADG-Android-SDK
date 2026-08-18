@@ -1,0 +1,90 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg",
+    "version": "2.41.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-2.41.0.aar",
+          "url": "adg-2.41.0.aar",
+          "size": 1594658,
+          "sha512": "797a8fa15a43f70cd982caea275cd4ccfa8dac90a5fef04fe9b4facaaeb900f0285edbaedc921699596d29128c25839a627867f7e55145114b3a6a32267080a7",
+          "sha256": "33fdd9341bf4ade9b653fb04e5ee6f2f9251d419895509ad3d7ca6aee5af5b22",
+          "sha1": "bf18bbf377c415af0413d465bb8cbebe2ed30d04",
+          "md5": "4be6d51f7cd5c03fe1ca0708bd99bfb4"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-2.41.0.aar",
+          "url": "adg-2.41.0.aar",
+          "size": 1594658,
+          "sha512": "797a8fa15a43f70cd982caea275cd4ccfa8dac90a5fef04fe9b4facaaeb900f0285edbaedc921699596d29128c25839a627867f7e55145114b3a6a32267080a7",
+          "sha256": "33fdd9341bf4ade9b653fb04e5ee6f2f9251d419895509ad3d7ca6aee5af5b22",
+          "sha1": "bf18bbf377c415af0413d465bb8cbebe2ed30d04",
+          "md5": "4be6d51f7cd5c03fe1ca0708bd99bfb4"
+        }
+      ]
+    }
+  ]
+}
