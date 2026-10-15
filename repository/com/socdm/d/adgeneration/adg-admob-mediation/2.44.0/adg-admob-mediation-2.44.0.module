@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-mediation",
+    "version": "2.44.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.44.0.aar",
+          "url": "adg-admob-mediation-2.44.0.aar",
+          "size": 11944,
+          "sha512": "4ed787145af3499bef4f48b1db1d53ab6cf4d207018ba8f9523a4caf62f926a427668920ca097f7e33f94df42fcd34f9db9c08521e1bee6d8d48f739ce10fc6b",
+          "sha256": "c1802d820de6fafb68f267fb4890f7c9a70cb7dd861817c3e5879b3b52ade5c6",
+          "sha1": "a10f6306a06d2c4db962594750cdc64164688b17",
+          "md5": "7fbcddbc956cd51bb5289dc9c8d3e8be"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "25.5.0"
+          }
+        },
+        {
+          "group": "com.socdm.d.adgeneration",
+          "module": "adg",
+          "version": {
+            "requires": "2.44.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.44.0.aar",
+          "url": "adg-admob-mediation-2.44.0.aar",
+          "size": 11944,
+          "sha512": "4ed787145af3499bef4f48b1db1d53ab6cf4d207018ba8f9523a4caf62f926a427668920ca097f7e33f94df42fcd34f9db9c08521e1bee6d8d48f739ce10fc6b",
+          "sha256": "c1802d820de6fafb68f267fb4890f7c9a70cb7dd861817c3e5879b3b52ade5c6",
+          "sha1": "a10f6306a06d2c4db962594750cdc64164688b17",
+          "md5": "7fbcddbc956cd51bb5289dc9c8d3e8be"
+        }
+      ]
+    }
+  ]
+}
