@@ -1,0 +1,83 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-adapter",
+    "version": "25.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-adapter-25.5.1.aar",
+          "url": "adg-admob-adapter-25.5.1.aar",
+          "size": 43771,
+          "sha512": "4ebd5989f47f6cac9a0681546e18c5e1017f4ca3d6a0b9ac68e9664dcddf45b41f1d46aa7857834f70a357bfbad7e25e76ca17c30e24ab7211200c8ddfb05eec",
+          "sha256": "64cb8faeac95a322dd67a6457d852e3d440a882fb105dfff18f19b55dc8df57c",
+          "sha1": "1c0f7d6b4921fcd13b198442e1a8123ac9d3daf0",
+          "md5": "fa68b1e91de6657dc2fa1be4615d6a56"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "25.5.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-adapter-25.5.1.aar",
+          "url": "adg-admob-adapter-25.5.1.aar",
+          "size": 43771,
+          "sha512": "4ebd5989f47f6cac9a0681546e18c5e1017f4ca3d6a0b9ac68e9664dcddf45b41f1d46aa7857834f70a357bfbad7e25e76ca17c30e24ab7211200c8ddfb05eec",
+          "sha256": "64cb8faeac95a322dd67a6457d852e3d440a882fb105dfff18f19b55dc8df57c",
+          "sha1": "1c0f7d6b4921fcd13b198442e1a8123ac9d3daf0",
+          "md5": "fa68b1e91de6657dc2fa1be4615d6a56"
+        }
+      ]
+    }
+  ]
+}
