@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-admob-mediation",
+    "version": "2.45.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.45.0.aar",
+          "url": "adg-admob-mediation-2.45.0.aar",
+          "size": 11946,
+          "sha512": "a8fd314fcc58e56ee4e751e8583081e6063cab54486fc26d1b55214ef192eb10733be2ef31b70751a1ffe0d04fe1ae299d80cfb6c08ee09f3193b2ef4a4e711c",
+          "sha256": "bbb6e05e25f18aadf58a6f56025470ac9adec653c32194633a0524451abebc83",
+          "sha1": "f474af627e0ddfccee3a52cd22b235047776a52b",
+          "md5": "357d474c560f2c3b42850162a0307b6c"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "25.5.0"
+          }
+        },
+        {
+          "group": "com.socdm.d.adgeneration",
+          "module": "adg",
+          "version": {
+            "requires": "2.45.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-admob-mediation-2.45.0.aar",
+          "url": "adg-admob-mediation-2.45.0.aar",
+          "size": 11946,
+          "sha512": "a8fd314fcc58e56ee4e751e8583081e6063cab54486fc26d1b55214ef192eb10733be2ef31b70751a1ffe0d04fe1ae299d80cfb6c08ee09f3193b2ef4a4e711c",
+          "sha256": "bbb6e05e25f18aadf58a6f56025470ac9adec653c32194633a0524451abebc83",
+          "sha1": "f474af627e0ddfccee3a52cd22b235047776a52b",
+          "md5": "357d474c560f2c3b42850162a0307b6c"
+        }
+      ]
+    }
+  ]
+}
