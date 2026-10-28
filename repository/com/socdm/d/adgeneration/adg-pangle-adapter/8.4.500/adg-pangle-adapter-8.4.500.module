@@ -1,0 +1,111 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-pangle-adapter",
+    "version": "8.4.500",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-pangle-adapter-8.4.500.aar",
+          "url": "adg-pangle-adapter-8.4.500.aar",
+          "size": 58583,
+          "sha512": "bb17f29234bbbccf2fcb4b2d50ce25cb9d9a1d7058813191d7c68204070c76e0f3c6bd53c80f3fd5d2190292f299e15f98dee4ecf818cd62c7c0752b28a90b38",
+          "sha256": "b2de8150896bbcc1283a7d0e51e85224b62dc2032e12947ad1e3354234b567f0",
+          "sha1": "bae68aa4f625c5aff264288062f9529112695fcd",
+          "md5": "ff84fa285e5ddfe0d1e6e65de0835e2a"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "18.0.1"
+          }
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.7.1"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.7.0"
+          }
+        },
+        {
+          "group": "androidx.constraintlayout",
+          "module": "constraintlayout",
+          "version": {
+            "requires": "2.1.4"
+          }
+        },
+        {
+          "group": "com.pangle.global",
+          "module": "pag-sdk",
+          "version": {
+            "requires": "8.4.0.5"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-pangle-adapter-8.4.500.aar",
+          "url": "adg-pangle-adapter-8.4.500.aar",
+          "size": 58583,
+          "sha512": "bb17f29234bbbccf2fcb4b2d50ce25cb9d9a1d7058813191d7c68204070c76e0f3c6bd53c80f3fd5d2190292f299e15f98dee4ecf818cd62c7c0752b28a90b38",
+          "sha256": "b2de8150896bbcc1283a7d0e51e85224b62dc2032e12947ad1e3354234b567f0",
+          "sha1": "bae68aa4f625c5aff264288062f9529112695fcd",
+          "md5": "ff84fa285e5ddfe0d1e6e65de0835e2a"
+        }
+      ]
+    }
+  ]
+}
