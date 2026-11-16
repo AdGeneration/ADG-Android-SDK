@@ -1,0 +1,83 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.socdm.d.adgeneration",
+    "module": "adg-unityads-adapter",
+    "version": "4.22.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-unityads-adapter-4.22.0.aar",
+          "url": "adg-unityads-adapter-4.22.0.aar",
+          "size": 37146,
+          "sha512": "6be78b7f38dc1d71836e8779e734d6a661d1868f0e167beee1a4636b183463d2700ffafa6e3c0034fa784568cf05a3cc90ae8f0b8d9dc8aae432d286a7b412c7",
+          "sha256": "5729cb5a6901aac44f647babd380f51f1b4b21d4299b3f8355b7ad7dac9e0c9b",
+          "sha1": "37aaa7e8bd91e3f1dbccd2356141683eaca8a289",
+          "md5": "67e49f223fcbc8a568d6073daaef8c21"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.unity3d.ads",
+          "module": "unity-ads",
+          "version": {
+            "requires": "4.22.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adg-unityads-adapter-4.22.0.aar",
+          "url": "adg-unityads-adapter-4.22.0.aar",
+          "size": 37146,
+          "sha512": "6be78b7f38dc1d71836e8779e734d6a661d1868f0e167beee1a4636b183463d2700ffafa6e3c0034fa784568cf05a3cc90ae8f0b8d9dc8aae432d286a7b412c7",
+          "sha256": "5729cb5a6901aac44f647babd380f51f1b4b21d4299b3f8355b7ad7dac9e0c9b",
+          "sha1": "37aaa7e8bd91e3f1dbccd2356141683eaca8a289",
+          "md5": "67e49f223fcbc8a568d6073daaef8c21"
+        }
+      ]
+    }
+  ]
+}
